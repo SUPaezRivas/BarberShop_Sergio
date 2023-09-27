@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbería</title>
+    <style>
+        /* Estilos para la página */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .encabezado {
+            background-image: url('imagenes/fondo.png');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            text-align: center;
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .filtro {
+            background: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+
+        .encabezado h1 {
+            color: #f5f5f5;
+            font-size: 48px;
+            margin-top: 150px;
+            z-index: -1;
+        }
+
+        .navbar {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            margin: 0 15px;
+        }
+
+        .menu-lateral {
+            background-color: #333;
+            color: #fff;
+            width: 250px;
+            height: 100%;
+            position: fixed;
+            right: -250px;
+            top: 0;
+            transition: right 0.3s ease-in-out;
+            z-index: 10;
+        }
+
+        .menu-lateral ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 50px 0;
+        }
+
+        .menu-lateral a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            display: block;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .menu-lateral a:hover {
+            background-color: #555;
+        }
+
+        .contenedor-principal {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .boton-menu {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 999;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Estilos para el contenido principal */
+        .contenido-principal {
+            padding: 20px;
+            background-color: #fff;
+            /* Fondo blanco */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        /* Estilos para los títulos */
+        h1 {
+            font-size: 28px;
+            color: #333;
+            /* Texto gris oscuro */
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #020202;
+            /* Texto azul */
+            margin-bottom: 10px;
+        }
+
+        /* Estilos para la tabla del formulario de usuarios */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ccc;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        /* Estilos para las etiquetas de las celdas de la tabla */
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        /* Estilos para los campos de entrada */
+        input[type="text"],
+        input[type="tel"] {
+            width: -webkit-fill-available;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        /* Estilos para el botón de enviar */
+        button[type="submit"] {
+            background-color: #0073e6;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #005cbf;
+        }
+
+        /* Estilos para el contenido principal */
+        .contenido-principal {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Estilos para el título */
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="boton-menu" onclick="abrirMenu()">☰ Tablas</div>
+    <header class="navbar">
+        <a href="index.html">Inicio</a>
+        <a>Formularios:</a>
+        <a href="form1.html">Usuarios</a>
+        <a href="form2.html">Productos</a>
+        <a href="form3.html">Proveedores</a>
+        <a href="form4.html">Venta</a>
+        <a href="form5.html">Empleado</a>
+    </header>
+    <div class="menu-lateral" id="menuLateral">
+        <ul>
+            <li><a href="tab1.html">Usuarios</a></li>
+            <li><a href="tab2.html">Productos</a></li>
+            <li><a href="tab3.html">Proveedores</a></li>
+            <li><a href="tab4.html">Venta</a></li>
+            <li><a href="tab5.html">Empleado</a></li>
+        </ul>
+    </div>
+    <div class="contenedor-principal">
+        <div class="encabezado">
+            <h1>Barber Shop</h1>
+            <div class="filtro"></div>
+        </div>
+
+        <main class="contenido-principal">
+            <h1>Tabla Proveedores</h1>
+            <img src="imagenes/tproveedor.png" alt="Barbería"
+                style="max-width: 100%; border-radius: 10px; margin-top: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">
+
+        </main>
+
+
+
+    </div>
+    <footer>
+        <p>Sergio Uziel Paez</p>
+    </footer>
+
+    <script>
+        function abrirMenu() {
+            var menuLateral = document.getElementById('menuLateral');
+            if (menuLateral.style.right === '0px') {
+                menuLateral.style.right = '-250px';
+            } else {
+                menuLateral.style.right = '0px';
+            }
+        }
+    </script>
+</body>
+
+</html>
